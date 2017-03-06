@@ -7,4 +7,10 @@ class BankAccount
     @balance = starting_balance
   end
 
+  def deposit(amount)
+    new_balance = @balance + amount
+    @balance = new_balance
+  end
+
+
 end

@@ -6,7 +6,13 @@ describe BankAccount do
   describe 'initialize' do
     it 'New bank account has a starting balance of 0' do
       expect(account.balance).to eq(0)
+    end
+  end
 
+  describe '#deposit' do
+    it 'Adds deposit amount to current balance' do
+      account.deposit(10)
+      expect(account.balance).to eq (10)
     end
   end
 end
