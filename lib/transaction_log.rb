@@ -12,7 +12,13 @@ class TransactionLog
   end
 
   def deposit(amount, new_balance)
+    validate(amount, new_balance)
     @transactions << create_transaction(amount, new_balance, :credit)
+  end
+
+  def withdrawal(amount, new_balance)
+    validate(amount, new_balance)
+    @transactions << create_transaction(amount, new_balance, :debit)
   end
 
 
@@ -22,5 +28,10 @@ private
     @transaction_class.new(amount, new_balance, type)
   end
 
+  def validate(amount, new_balance)
+    raise "Transaction value must be a number" unless amount.class == Fixnum || amount.class == Float
+    raise "Transaction value must be higher than zero" unless amount > 0
+    raise "Balance cannot be negative" unless new_balance >= 0
+  end
 
 end
