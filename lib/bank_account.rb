@@ -12,5 +12,9 @@ class BankAccount
     @balance = new_balance
   end
 
-
+  def withdrawal(amount)
+    new_balance = @balance - amount
+    @balance = new_balance
+  end
+  
 end

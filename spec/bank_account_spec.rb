@@ -15,4 +15,12 @@ describe BankAccount do
       expect(account.balance).to eq (10)
     end
   end
+
+  describe '#withdrawal' do
+    it 'Deducts the amount from the current balance' do
+      account.deposit(20)
+      account.withdrawal(10)
+      expect(account.balance).to eq (10)
+    end
+  end
 end
