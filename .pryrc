@@ -1,3 +1,3 @@
-require '../lib/transaction_log'
-require '../lib/transaction'
-require '../lib/bank_account'
+require './lib/transaction.rb'
+require './lib/bank_account.rb'
+require './lib/transaction_log.rb'

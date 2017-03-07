@@ -1,23 +1,21 @@
-require 'transaction_log'
+require_relative "transaction_log"
 
 class BankAccount
   attr_reader :balance
 
-  EMPTY_ACCOUNT = 0
+  OPENING_BALANCE = 0
 
-  def initialize(starting_balance: EMPTY_ACCOUNT, transaction_log: TransactionLog.new)
+  def initialize(starting_balance: OPENING_BALANCE, transaction_log: TransactionLog.new)
     @transaction_log = transaction_log
     @balance = starting_balance
   end
 
   def deposit(amount)
-    new_balance = @balance + amount
-    @balance = new_balance
+    @balance += amount
   end
 
   def withdrawal(amount)
-    new_balance = @balance - amount
-    @balance = new_balance
+    @balance -= amount
   end
 
 end

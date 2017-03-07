@@ -2,10 +2,14 @@ require 'bank_account'
 
 describe BankAccount do
   subject(:account) {described_class.new}
+  subject(:account1) {described_class.new(starting_balance: 10)}
 
   describe 'initialize' do
     it 'New bank account has a starting balance of 0' do
       expect(account.balance).to eq(0)
+    end
+    it 'New account has a staring balance of 20' do
+      expect(account1.balance).to eq(10)
     end
   end
 
