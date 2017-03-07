@@ -1,6 +1,7 @@
 require_relative "transaction"
 
 class TransactionLog
+  
 
   def initialize(transaction_class = Transaction)
     @transaction_class = transaction_class

@@ -12,10 +12,15 @@ class BankAccount
 
   def deposit(amount)
     @balance += amount
+    @transaction_log.deposit(amount, @balance)
   end
 
   def withdrawal(amount)
     @balance -= amount
+    @transaction_log.withdrawal(amount, @balance)
   end
 
+  def current_balance
+    "Your available balance is £#{@balance}"
+  end
 end
